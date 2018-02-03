@@ -94,6 +94,9 @@ extern crate stdweb_internal_macros;
 #[cfg(all(target_arch = "wasm32", target_os = "unknown"))]
 pub use stdweb_internal_macros::js_export;
 
+#[cfg(any(test, feature = "futures"))]
+extern crate futures;
+
 #[macro_use]
 mod webcore;
 mod webapi;
@@ -115,6 +118,8 @@ pub use webcore::array::Array;
 
 pub use webcore::unsafe_typed_array::UnsafeTypedArray;
 pub use webcore::once::Once;
+
+pub use webcore::promise::PromiseFuture;
 
 #[cfg(feature = "serde")]
 /// A module with serde-related APIs.

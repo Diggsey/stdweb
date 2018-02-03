@@ -33,6 +33,13 @@ pub trait IError: AsRef< Reference > + TryFrom< Value > {
 /// [(JavaScript docs)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
 pub struct Error( Reference );
 
+impl Error {
+    #[inline]
+    pub fn new( description: &str ) -> Self {
+        js!( return new Error( @{description} ); ).try_into().unwrap()
+    }
+}
+
 // Error specification:
 // https://www.ecma-international.org/ecma-262/6.0/#sec-error-objects
 
