@@ -119,7 +119,7 @@ pub use webcore::array::Array;
 pub use webcore::unsafe_typed_array::UnsafeTypedArray;
 pub use webcore::once::Once;
 
-pub use webcore::promise::PromiseFuture;
+pub use webcore::promise::{Promise, PromiseFuture};
 
 #[cfg(feature = "serde")]
 /// A module with serde-related APIs.
